@@ -10,7 +10,7 @@ const PersonForm = () => {
         //prevent default behavior of the submit
         e.preventDefault();
         //make a post request to create a new person
-        axios.post('http://localhost:8000/api/people/add', {
+        axios.post('http://localhost:8000/api/people', {
             firstName,
             lastName
         })
