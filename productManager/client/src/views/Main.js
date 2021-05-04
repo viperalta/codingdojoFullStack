@@ -1,36 +1,30 @@
 import React, {useEffect,useState} from 'react';
 import axios from 'axios';
-import PersonForm from '../components/PersonForm';
-import PersonList from '../components/PersonList';
 import ProductForm from '../components/ProductForm';
 import ProductList from '../components/ProductList';
 
 const Main = () => {
 
-
-    /* const [people,setPeople]=useState([]);
-
-    useEffect(()=>{
-        axios.get('http://localhost:8000/api/people')
-        .then(res=>setPeople(res.data))
-        .catch(err=>console.log('Error:',err))
-    },[]) */
-
     const [products,setProducts]=useState([]);
+    const [loaded, setLoaded] = useState(false);
 
     useEffect(()=>{
         axios.get('http://localhost:8000/api/products')
-        .then(res=>setProducts(res.data))
+        .then(res=> {
+            setProducts(res.data);
+            setLoaded(true);
+        } )
         .catch(err=>console.log('Error:',err))
     },[])
+
+    const removeFromDom = productId => {
+        setProducts(products.filter(product => product._id != productId));
+    }
 
     return (
         <div>
            <ProductForm />
-           <ProductList products={products} />
-
-           {/* <PersonForm />
-           <PersonList people={people} /> */}
+           {loaded && <ProductList products={products} removeFromDom={removeFromDom}/>}
         </div>
     )
 }

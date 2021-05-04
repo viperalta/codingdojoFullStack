@@ -26,7 +26,12 @@ const Detail = () => {
             <h3>${product.price}</h3>
             <p>Descripción: {product.description}</p>
             
+                <Link to={id + "/edit"}>EDITAR PRODUCTO</Link>
+                <br></br>
                 <Link to="/">VOLVER</Link>
+                
+                
+
             
         </div>
     )

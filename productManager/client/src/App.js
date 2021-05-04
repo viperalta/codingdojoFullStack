@@ -3,6 +3,7 @@ import "./App.css";
 import Main from "./views/Main";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Detail from "./views/Detail";
+import Update from "./views/Update";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+          <Route path="/product/:id/edit">
+            <Update />
+          </Route>
           <Route path="/product/:id">
             <Detail />
           </Route>
