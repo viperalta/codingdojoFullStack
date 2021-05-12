@@ -24,7 +24,7 @@ const Main = () => {
         <div className="row">
           <div className="col-md-4">
             <Link to="/author/new">
-              <button type="button" className="btn btn-primary d-sm-flex">
+              <button type="button" className="btn btn-primary">
                 Agregar Autor
               </button>
             </Link>
